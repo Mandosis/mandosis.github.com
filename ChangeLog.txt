@@ -1,8 +1,0 @@
-2/14/2016
-    - Fixed head tag
-    - Updated tags to HTML5 and updated CSS to reflect changes
-    - Removed unused classes
-    - Increased line height on unordered lists
-    - Changed Montesserat to Robot Condensed
-    - Decreased font weight globally
-    - Updated portrait photo
