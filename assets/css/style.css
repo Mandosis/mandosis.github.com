@@ -63,6 +63,11 @@ li {
   width: 64px;
 }
 
+a {
+  color: #FFF;
+  text-decoration: none;
+}
+
 .facebook {
   background: #3b5998;
 }
