@@ -11,7 +11,7 @@ console.log(main);
 var css = document.createAttribute('style');
 
 // Set backgound
-css.value = 'background: url(' + pattern.png() + '); background-repeat: no-repeat; background-size: auto';
+css.value = 'background: url(' + pattern.png() + '); background-repeat: no-repeat; background-size: auto; background-attachment: fixed;';
 
 main[0].setAttributeNode(css);
 
