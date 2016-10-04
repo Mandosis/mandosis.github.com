@@ -5,7 +5,6 @@ html, body {
   background-size: cover;
   background-attachment: fixed;
   min-height: 100vh;
-  border-top: 3px solid #568085;
   font-family: 'Roboto', Arial, sans-serif;
   color: #FFF;
 }
@@ -20,10 +19,22 @@ html, body {
 }
 
 main {
-  min-height: 100vh;
+  min-height: calc(100vh - 3px);
   top: 0;
   position: absolute;
   width: 100%;
+}
+
+.intro {
+  width: 100%;
+  height: calc(100vh - 3px);
+  border-top: 3px solid #568085;
+  background:  url('../images/overlay.png') repeat, url('../images/background.jpg') center bottom no-repeat;
+}
+
+.intro-content {
+  height: 31.1rem;
+  margin-top: calc(25rem - 12rem);
 }
 
 .me {
@@ -81,6 +92,14 @@ li {
 a {
   color: #FFF;
   text-decoration: none;
+}
+
+.social-icon {
+  transition: transform 0.05s;
+}
+
+.social-icon:hover {
+  transform: scale(1.1,1.1);
 }
 
 .facebook {
