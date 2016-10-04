@@ -1,7 +1,8 @@
 html, body {
   margin: 0;
   padding: 0;
-  background: #242627;
+  /*background: #242627;*/
+  background: #FFF;
   background-size: cover;
   background-attachment: fixed;
   min-height: 100vh;
@@ -33,23 +34,20 @@ main {
 }
 
 .intro-content {
-  height: 31.1rem;
-  margin-top: calc(25rem - 12rem);
+  height: 468px;
+  margin-top: calc(100vh - 468px - 232px);
+  text-align: center;
 }
 
 .me {
-  height: 200px;
-  width: 200px;
+  height: 11rem;
+  width: 11rem;
   border-radius: 50%;
   border: 5px solid #FFF;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  margin-top: 40px;
 }
 
 .name {
-  font-size: 60px;
+  font-size: 3.5rem;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
   flex: auto;
   text-align: center;
@@ -67,6 +65,7 @@ main {
 .title {
   text-align: center;
   color: #CCC;
+  font-size: 1.5rem;
 }
 
 .icons {
@@ -121,4 +120,51 @@ a {
 .fa-center {
   padding-left: 14.6px;
   padding-top: 13px;
+}
+
+.btn-down {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 3rem;
+  /* background: #568085; */
+  background-color: rgba(255,255,255,0.2);
+  border: none;
+  font-size: 2rem;
+  color: #F5F5F5;
+  outline: none;
+  position: absolute;
+  margin-top: 10rem;
+  margin-left: calc(50% - 1.5rem);
+  cursor: pointer;
+  transition: transform 0.05s;
+}
+
+.btn-down:hover {
+  transform: scale(1.1,1.1);
+}
+
+/**
+ * Portfolio
+ */
+.portfolio {
+  min-height: 100vh;
+  width: 100%;
+  transition: height 0.05s;
+  position: absolute;
+}
+
+.portfolio-title {
+  font-size: 2.1rem;
+  letter-spacing: 1rem;
+  font-weight: 300;
+  text-align: center;
+  font-family: 'Oswald', sans-serif;
+  color: #333;
+  margin-top: 3rem;
+  text-transform: uppercase;
+  opacity: 0;
+}
+
+.hidden {
+  display: none;
 }
