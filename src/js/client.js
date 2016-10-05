@@ -9,10 +9,12 @@ var navigationList = [
 ];
 
 $(function() {
+
   /**
    * Navigate to portfolio from landing page
    */
   $(".btn-down").click(function() {
+    currentIndex = 1;
     $(".portfolio").removeClass('hidden');
     $("body").css({overflow: 'hidden'});
 
@@ -24,7 +26,7 @@ $(function() {
   /**
    * Navigation via scrolling
    */
-  $("html, body").on('mousewheel', function(event) {
+  $(".intro").on('mousewheel', function(event) {
 
     var newIndex = null;
 
@@ -37,13 +39,6 @@ $(function() {
             currentIndex++;
           })
         }
-      } else {
-        if (currentIndex > 1) {
-          scrollToSection(currentIndex - 1, function() {
-            currentIndex--;
-          });
-        }
-
       }
     }
 
@@ -103,7 +98,7 @@ $(function() {
 
 
         // Hide previous section
-        currentElement.addClass('hidden');
+        // currentElement.addClass('hidden');
 
         // Allow scrollbar
         $("body").css({overflow: "visible"});
