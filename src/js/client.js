@@ -1,6 +1,7 @@
 var currentIndex = 1;
 var lastIndex = 2;
 var canScroll = true;
+var portfolioVisible = false;
 var navigationList = [
   'landing',
   'portfolio',
@@ -20,6 +21,7 @@ $(function() {
 
     scrollToSection(2, function() {
       currentIndex++;
+      portfolioVisible = true;
     });
   });
 
@@ -30,7 +32,7 @@ $(function() {
 
     var newIndex = null;
 
-    if (canScroll) {
+    if (canScroll && !portfolioVisible) {
 
       if (scrollDirection() === 'down') {
         if (currentIndex < lastIndex) {
