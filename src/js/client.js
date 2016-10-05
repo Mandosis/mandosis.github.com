@@ -91,7 +91,7 @@ $(function() {
         canScroll = false;
 
         // Set CSS for animation
-        nextElementWithAnimation.css({"margin-top": "2.5em", "opacity": "0"})
+        nextElementWithAnimation.css({"margin-top": "+=0.7rem", "opacity": "0"})
       },
       complete: function() {
         // Unlock scrolling
@@ -107,8 +107,8 @@ $(function() {
 
         // Start animations
         nextElementWithAnimation.animate({
-          "margin-top": "2em",
-          opacity: '1'
+          "margin-top": "-=0.7rem",
+          opacity: 1
         }, 400);
       }
     })
