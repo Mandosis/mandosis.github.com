@@ -133,7 +133,7 @@ a {
   color: #F5F5F5;
   outline: none;
   position: absolute;
-  margin-top: 10rem;
+  bottom: 3rem;
   margin-left: calc(50% - 1.5rem);
   cursor: pointer;
   transition: transform 0.05s;
@@ -162,9 +162,12 @@ a {
   color: #333;
   margin-top: 3rem;
   text-transform: uppercase;
-  opacity: 0;
 }
 
 .hidden {
   display: none;
+}
+
+.animate {
+  opacity: 0;
 }

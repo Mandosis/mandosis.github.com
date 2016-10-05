@@ -1,91 +1,122 @@
 var currentIndex = 1;
 var lastIndex = 2;
 var canScroll = true;
+var navigationList = [
+  'landing',
+  'portfolio',
+  'about',
+  'contact'
+];
 
 $(function() {
-  console.log('jQuery Loaded');
+  /**
+   * Navigate to portfolio from landing page
+   */
   $(".btn-down").click(function() {
     $(".portfolio").removeClass('hidden');
     $("body").css({overflow: 'hidden'});
-    $("html, body").animate({
-      scrollTop: $(".portfolio").offset().top,
-    }, 500, "swing", function() {
-      $(".intro").addClass('hidden');
 
-      $(".portfolio-title").css({"margin-top": "3em", "opacity": ""}).animate({
-        "margin-top": "2em",
-        opacity: '1'
-      }, 400, function() {
-        $("body").css({overflow: "visible"});
-      });
+    scrollToSection(2, function() {
       currentIndex++;
     });
-
   });
 
-  $("html, body").on('mousewheel', function(e) {
-    console.log(currentIndex);
+  /**
+   * Navigation via scrolling
+   */
+  $("html, body").on('mousewheel', function(event) {
 
     var newIndex = null;
-    var index = currentIndex;
-    var up = (e.originalEvent.deltaY >= 0);
 
     if (canScroll) {
-      if (up) {
-        if (currentIndex < 2) {
-          newIndex = currentIndex + 1;
-          currentIndex++;
+
+      if (scrollDirection() === 'down') {
+        if (currentIndex < lastIndex) {
+          console.log('down')
+          scrollToSection(currentIndex + 1, function() {
+            currentIndex++;
+          })
         }
       } else {
         if (currentIndex > 1) {
-          newIndex = currentIndex - 1;
-          currentIndex--;
+          scrollToSection(currentIndex - 1, function() {
+            currentIndex--;
+          });
         }
+
       }
     }
 
-    if (newIndex) {
-      var currentElement = $("section[data-index="+ index +"]");
-      var nextElement = $("section[data-index=" + newIndex +"]");
-
-      $("body").css({overflow: 'hidden'});
-
-      nextElement.removeClass('hidden');
-      if (!up) {
-        $("html, body").animate({
-          scrollTop: currentElement.offset().top,
-        }, 0);
+    function scrollDirection() {
+      if (event.originalEvent.wheelDelta >= 0) {
+        return 'up';
+      } else {
+        return 'down';
       }
-
-      $("html, body").animate({
-        scrollTop: nextElement.offset().top,
-      }, {
-        duration: 500,
-        easing: 'swing',
-        start: function() {
-          canScroll = false;
-        },
-        complete: function() {
-          canScroll = true;
-          console.log('end function called')
-          currentElement.addClass('hidden');
-
-          var nextElementWithAnimation = $("section[data-index=" + newIndex +"] .animate")
-          $("body").css({overflow: "visible"});
-
-
-          nextElementWithAnimation.css({"margin-top": "3em", "opacity": ""}).animate({
-            "margin-top": "2em",
-            opacity: '1'
-          }, 400);
-
-          canScroll = true;
-
-        }
-      })
     }
+
 
   });
+
+
+
+
+  /**
+   * Navigates to section on the page
+   */
+  function scrollToSection(index, callback) {
+    var currentElement = $("section[data-index="+ currentIndex +"]");
+    var nextElement = $("section[data-index=" + index +"]");
+    var nextElementWithAnimation = $("section[data-index=" + index +"] .animate");
+
+    var htmlOrBody = (navigator.userAgent.toLowerCase().indexOf('webkit') > 0 ? 'body' : 'html');
+
+
+    // Hide scrollbar
+    $("body").css({overflow: 'hidden'});
+
+    nextElement.removeClass('hidden');
+
+    // Set scroll position to top of current section
+    $(htmlOrBody).animate({
+      scrollTop: currentElement.offset().top,
+    }, 0);
+
+    // Animate scrolling to desired section
+    $(htmlOrBody).animate({
+      scrollTop: nextElement.offset().top,
+    }, {
+      duration: 500,
+      easing: 'swing',
+      start: function() {
+
+        // Lock scrolling
+        canScroll = false;
+
+        // Set CSS for animation
+        nextElementWithAnimation.css({"margin-top": "2.5em", "opacity": "0"})
+      },
+      complete: function() {
+        // Unlock scrolling
+        canScroll = true;
+        callback();
+
+
+        // Hide previous section
+        currentElement.addClass('hidden');
+
+        // Allow scrollbar
+        $("body").css({overflow: "visible"});
+
+        // Start animations
+        nextElementWithAnimation.animate({
+          "margin-top": "2em",
+          opacity: '1'
+        }, 400);
+      }
+    })
+
+  }
 
 
 });
