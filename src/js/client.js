@@ -11,7 +11,6 @@ var navigationList = [
 
 var introHeight = $('.intro').innerHeight();
 
-
 $(function() {
 
   /**
@@ -125,15 +124,12 @@ $(function() {
   });
 
   function resizeIntro() {
-    // $(".intro").css({
-    //   height: $(window).height() - 3 + 'px';
-    // });
+    var userAgent = navigator.userAgent.toLowerCase();
+    if ((/chrome\/[.0-9]* mobile/g).test(userAgent)) {
+      $(".intro").innerHeight(introHeight + 60);
+      console.log('resizeIntro() called.')
+    }
 
-    $(".intro").innerHeight(introHeight + 60);
   }
-
-  // $(window).on('resize', function() {
-  //   resizeIntro();
-  // });
 
 });
