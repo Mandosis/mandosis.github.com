@@ -64,8 +64,6 @@ $(function() {
    * Navigates to section on the page
    */
   function scrollToSection(index, callback) {
-    resizeIntro();
-
     var currentElement = $("section[data-index="+ currentIndex +"]");
     var nextElement = $("section[data-index=" + index +"]");
     var nextElementWithAnimation = $("section[data-index=" + index +"] .animate");
@@ -95,41 +93,36 @@ $(function() {
         canScroll = false;
 
         // Set CSS for animation
-        nextElementWithAnimation.css({"margin-top": "+=0.7rem", "opacity": "0"})
+        nextElementWithAnimation.removeClass("fade-in-and-up");
       },
       complete: function() {
         // Unlock scrolling
         canScroll = true;
         callback();
 
-
-        // Hide previous section
-        // currentElement.addClass('hidden');
-
         // Allow scrollbar
         $("body").css({overflow: "visible"});
 
         // Start animations
-        nextElementWithAnimation.animate({
-          "margin-top": "-=0.7rem",
-          opacity: 1
-        }, 400);
+        nextElementWithAnimation.addClass("fade-in-and-up");
       }
     })
 
   }
 
-  $(window).on('resize orientationchange', function() {
-    resizeIntro();
-  });
+  // $(window).on('orientationchange', function() {
+  //   resizeIntro();
+  // });
 
   function resizeIntro() {
     var userAgent = navigator.userAgent.toLowerCase();
     if ((/chrome\/[.0-9]* mobile/g).test(userAgent)) {
-      $(".intro").innerHeight(introHeight + 60);
+      $(".intro").innerHeight(introHeight);
       console.log('resizeIntro() called.')
     }
 
   }
+
+  resizeIntro();
 
 });

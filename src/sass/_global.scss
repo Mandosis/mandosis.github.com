@@ -30,4 +30,11 @@ main {
 
 .animate {
   opacity: 0;
+  transform: translateY(0.7em);
+}
+
+.fade-in-and-up {
+  opacity: 1;
+  transform: translateY(-0.7em);
+  transition: opacity 0.6s, transform 0.6s;
 }
