@@ -38,10 +38,14 @@ $(function() {
 
   mc.on('swipeup', function() {
     currentIndex = 1;
-    scrollToSection(2, function() {
-      currentIndex++;
-      portfolioVisible = true;
-    });
+    if (!portfolioVisible) {
+      scrollToSection(2, function() {
+        currentIndex++;
+        portfolioVisible = true;
+      });
+
+      mc.remove(Swipe);
+    }
   })
 
   /**
