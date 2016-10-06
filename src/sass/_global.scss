@@ -33,6 +33,11 @@ main {
   transform: translateY(0.7em);
 }
 
+.animate-queue {
+  opacity: 0;
+  transform: translateY(0.7em);
+}
+
 .fade-in-and-up {
   opacity: 1;
   transform: translateY(-0.7em);

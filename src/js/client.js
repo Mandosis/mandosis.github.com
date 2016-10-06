@@ -28,6 +28,23 @@ $(function() {
   });
 
   /**
+   * Swipe event for intro
+   */
+  var stage = $(".intro")[0];
+  var mc = new Hammer.Manager(stage);
+  var Swipe = new Hammer.Swipe();
+
+  mc.add(Swipe);
+
+  mc.on('swipeup', function() {
+    currentIndex = 1;
+    scrollToSection(2, function() {
+      currentIndex++;
+      portfolioVisible = true;
+    });
+  })
+
+  /**
    * Navigation via scrolling
    */
   $(".intro").on('mousewheel', function(event) {
@@ -67,6 +84,7 @@ $(function() {
     var currentElement = $("section[data-index="+ currentIndex +"]");
     var nextElement = $("section[data-index=" + index +"]");
     var nextElementWithAnimation = $("section[data-index=" + index +"] .animate");
+    var animateQueue = $(".animate-queue");
 
     var htmlOrBody = (navigator.userAgent.toLowerCase().indexOf('webkit') > 0 ? 'body' : 'html');
 
@@ -94,6 +112,7 @@ $(function() {
 
         // Set CSS for animation
         nextElementWithAnimation.removeClass("fade-in-and-up");
+        animateQueue.removeClass("fade-in-and-up");
       },
       complete: function() {
         // Unlock scrolling
@@ -105,6 +124,43 @@ $(function() {
 
         // Start animations
         nextElementWithAnimation.addClass("fade-in-and-up");
+        console.log('animateQueueElements', animateQueue);
+
+        var queueLength = animateQueue.length;
+        var queueIndex = 0;
+
+        var queue = window.setInterval(function() {
+
+          if (queueIndex >= queueLength) {
+            clearInterval(queue);
+          }
+          var elements = $('.animate-queue');
+          elements.eq(queueIndex).addClass("fade-in-and-up");
+          queueIndex++;
+        }, 100);
+
+        // animateQueue.queue(function(next) {
+        //   console.log('queue hit')
+        //   window.setTimeout(function() {
+        //     animateQueue.eq(queueIndex).addClass('fade-in-and-up');
+        //     queueIndex++;
+        //     console.log('queue timeout hit')
+        //     // $(this).addClass("fade-in-and-up");
+        //
+        //     window.setTimeout(function() {
+        //       next();
+        //     }, 500);
+        //   }, 500);
+        // })
+
+
+        // for (var i = 0; i < animateQueue.length; i++) {
+        //   console.log('asdfasdf')
+        //   setTimeout(function() {
+        //     animateQueue.eq(i).addClass('fade-in-and-up');
+        //     console.log('running' + i);
+        //   }, 500);
+        // }
       }
     })
 

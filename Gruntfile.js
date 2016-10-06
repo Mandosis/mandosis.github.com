@@ -41,7 +41,9 @@ module.exports = function(grunt) {
                    "jquery/dist/jquery.min.map",
                    "jquery-mousewheel/dist/jquery.mousewheel.js",
                    "font-awesome/css/*",
-                   "font-awesome/fonts/*"
+                   "font-awesome/fonts/*",
+                   "hammerjs/hammer.min.js",
+                   "hammerjs/hammer.min.js.map"
                ],
                "dest": "vendor/"
            }
