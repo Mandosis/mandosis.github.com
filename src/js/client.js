@@ -115,5 +115,13 @@ $(function() {
 
   }
 
+  $(window).resize("resizeBackground");
+
+
+  function resizeIntro() {
+    var intro = $(".intro");
+    intro.height($(window).height() + 60);
+  }
+
 
 });
