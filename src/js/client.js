@@ -115,16 +115,16 @@ $(function() {
 
   }
 
+  $(window).resize(function() {
+    resizeIntro();
+  });
+
 
   function resizeIntro() {
-    $('.intro').innerHeight($(this).innerHeight());
+    $('.intro').css({height: $(window).height()});
   }
 
   resizeIntro();
-
-  $(window).on('resize orientationchange', function() {
-    resizeIntro();
-  })
 
 
 });
