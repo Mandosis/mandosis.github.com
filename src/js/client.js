@@ -9,6 +9,9 @@ var navigationList = [
   'contact'
 ];
 
+var introHeight = $('.intro').innerHeight();
+
+
 $(function() {
 
   /**
@@ -62,6 +65,8 @@ $(function() {
    * Navigates to section on the page
    */
   function scrollToSection(index, callback) {
+    resizeIntro();
+
     var currentElement = $("section[data-index="+ currentIndex +"]");
     var nextElement = $("section[data-index=" + index +"]");
     var nextElementWithAnimation = $("section[data-index=" + index +"] .animate");
@@ -115,16 +120,20 @@ $(function() {
 
   }
 
-  $(window).resize(function() {
+  $(window).on('resize orientationchange', function() {
     resizeIntro();
   });
 
-
   function resizeIntro() {
-    $('.intro').height($(window).height() - 3 + 60);
+    // $(".intro").css({
+    //   height: $(window).height() - 3 + 'px';
+    // });
+
+    $(".intro").innerHeight(introHeight + 60);
   }
 
-  resizeIntro();
-
+  // $(window).on('resize', function() {
+  //   resizeIntro();
+  // });
 
 });
