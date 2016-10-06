@@ -14,8 +14,13 @@
   }
 
   .intro-content {
-    height: 468px;
-    margin-top: calc(100vh - 468px - 232px);
+    height: 29.3rem;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
     text-align: center;
   }
 
@@ -123,5 +128,37 @@
 
   &:hover {
     transform: scale(1.1,1.1);
+  }
+}
+
+/**
+ * Desktop specific styles
+ */
+@media screen and (min-width: 992px) {
+}
+
+/**
+ * Tablet and mobile specific styles
+ */
+@media screen and (max-width: 991px) {
+  .intro {
+
+    .intro-content {
+      height: 26.3rem;
+
+      .me {
+        max-width: 10rem;
+        max-height: 10rem;
+      }
+
+      .name {
+        font-size: 2.5rem;
+      }
+    }
+
+  }
+
+  .btn-down {
+    bottom: 1rem;
   }
 }
