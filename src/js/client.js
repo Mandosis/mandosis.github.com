@@ -115,15 +115,16 @@ $(function() {
 
   }
 
-  $(window).resize("resizeBackground");
-
 
   function resizeIntro() {
-    var intro = $(".intro");
-    var newHeight = $(window).height() + 60;
-
-    intro.css({height: newHeight});
+    $('.intro').innerHeight($(this).innerHeight());
   }
+
+  resizeIntro();
+
+  $(window).on('resize orientationchange', function() {
+    resizeIntro();
+  })
 
 
 });
