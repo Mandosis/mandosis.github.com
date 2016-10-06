@@ -121,7 +121,7 @@ $(function() {
 
 
   function resizeIntro() {
-    $('.intro').css({height: $(window).height()});
+    $('.intro').height($(window).height() - 3 + 60);
   }
 
   resizeIntro();
