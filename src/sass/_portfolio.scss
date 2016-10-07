@@ -29,6 +29,8 @@
     flex-wrap: wrap;
     justify-content: center;
 
+
+
     .item {
       width: 20rem;
       height: 12rem;
@@ -43,14 +45,14 @@
       box-shadow: 0px 1px 5px 0px rgba(50, 50, 50, 0.3);
       overflow: hidden;
 
-      .details {
+      .description {
         width: 100%;
         height: 100%;
         background: rgba(38, 47, 58, 0.98);
         opacity: 0;
         transition: opacity 0.2s ease-in-out;
 
-        // Change to &:hover .details to trigger on item hover
+        // Change to &:hover .description to trigger on item hover
         &:hover {
           opacity: 1;
         }
@@ -77,11 +79,101 @@
       }
 
       &:hover {
-        transform: scale(1.1, 1.1) translateY(-0.55rem);
+        transform: scale(1.1, 1.1) translateY(-0.6rem);
       }
+
+
+
 
     }
 
   }
 
+}
+
+
+/**
+ * Details
+ */
+.details {
+  width: 100%;
+  height: 100vh;
+  background: #FFF;
+  color: #333;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  opacity: 0;
+  overflow: auto;
+
+  .cover {
+    width: 100%;
+    height: 20rem;
+    background-color: #EEE;
+    background-position: center;
+
+    .close {
+      padding: 2em;
+      position: absolute;
+      cursor: pointer;
+    }
+  }
+
+  .content {
+    width: calc(100% - 10rem);
+    height: auto;
+    padding: 2rem 5rem;
+
+    h2 {
+      font-size: 1.5rem;
+      letter-spacing: 0.5rem;
+      font-weight: 300;
+      font-family: 'Oswald', sans-serif;
+      color: #333;
+      margin-top: 3rem;
+      text-transform: uppercase;
+    }
+  }
+}
+
+
+/**
+ * Tablet and mobile specific styles
+ */
+@media screen and (max-width: 991px) {
+  .details {
+    .content {
+      width: calc(100% - 4rem);
+      padding: 2rem;
+    }
+  }
+}
+
+
+
+.anim-more-info {
+  animation: 1s portfolio;
+}
+
+
+@keyframes portfolio {
+  0% {
+    transform: scale(1.1, 1.1) translateY(-0.6rem);
+  }
+
+  10% {
+    transform: scale(1, 1) translateY(-0.6rem);
+  }
+
+  20% {
+    transform: rotateY(90deg) translateY(-0.6rem);
+  }
+
+  40% {
+    transform: rotateY(180deg) translateY(-0.6rem);
+  }
+
+  100% {
+    transform: scale(3) rotateY(180deg) translateY(-0.6rem);
+  }
 }

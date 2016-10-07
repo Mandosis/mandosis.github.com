@@ -28,7 +28,7 @@ module.exports = function(grunt) {
                screwIE8: true
            },
            build: {
-               src: ['src/js/client.js'],
+               src: ['src/js/client.js', 'src/js/portfolio.js'],
                dest: 'assets/js/client.min.js'
            }
        },
