@@ -8,12 +8,12 @@
     "start": "gulp"
   },
   "dependencies": {
-    "core-js": "^2.4.1"
+    "core-js": "^2.4.1",
+    "rimraf": "^2.5.4"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
-    "gulp-rimraf": "^0.2.1",
     "gulp-sass": "^3.0.0",
     "gulp-sourcemaps": "^1.9.1",
     "gulp-typescript": "^3.1.3",
