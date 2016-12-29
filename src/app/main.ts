@@ -1,8 +1,13 @@
-import { routes } from './routes';
+import { Router, Route } from './lib/router';
 
-let link = document.getElementsByClassName('router-link')[0];
-
-link.addEventListener('click', () => {
-    console.log('click');
-    routes.navigate('home');
-});
+let routes = new Router([
+    {
+        path: '/',
+        partial: `<h1>Home</h1><p>This is the home page.</p>`
+    },
+    {
+        path: 'about',
+        partial: `<h1>About</h1><p>This is the about page. It turns out I am actually human.</p>`
+        // partialUrl: 'index.html'
+    }
+]);

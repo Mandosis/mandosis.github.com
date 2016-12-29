@@ -66,7 +66,7 @@ let finalConfig = {
             includeDeclarations: true,
 
             // Output Options
-            out: '../docs',
+            out: root('docs'),
 
             // TypeDoc Options
             name: "Chris Rabuse Portfolio",

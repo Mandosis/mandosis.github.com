@@ -15,6 +15,7 @@ export class Router {
         }
 
         this.navigate(window.location.pathname);
+        this._addRouterLinkEventListeners();
     }
 
 
@@ -25,11 +26,11 @@ export class Router {
      * @returns Success of navigation.
      */
     public navigate(path: string): boolean {
-        path.trim();
-        
-        if (path.charAt(0) === '/') {
-            path = path.slice(1, path.length);
-        }
+        path = path.trim();
+
+        // if (path.charAt(0) === '/') {
+        //     path = path.slice(1, path.length);
+        // }
 
         for (let route of this._routes) {
             if (path === route.path) {
@@ -92,7 +93,32 @@ export class Router {
                 })
                 .catch((err: string) => {
                     return reject(err);
-                })
+                });
         });
+    }
+
+    /**
+     * Add click event listeners to elements containing the 'routerLink'
+     * attribute to navigate to a new route.
+     */
+    private _addRouterLinkEventListeners() {
+        let nodeList: NodeList = document.querySelectorAll('[routerLink]');
+
+        // Convert Node List to Array of HTML Elements
+        let elementList: Array<HTMLElement> = [].slice.call(nodeList);
+
+        let eventAction = () => {
+            let route = event
+                .srcElement
+                .attributes
+                .getNamedItem('routerLink')
+                .value;
+
+            this.navigate(route);
+        }
+
+        for (let element of elementList) {
+            element.addEventListener('click', eventAction);
+        }
     }
 }
