@@ -44,7 +44,8 @@ export class Router {
                 return true;
             }
         }
-
+        
+        this.navigate(this._routes[0].path);
         console.error(`Router: Path '${path}' does not exist.`);
         return false;
     }
