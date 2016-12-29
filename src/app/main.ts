@@ -1,4 +1,4 @@
-import { Router, Route } from './lib/router';
+import { Router } from './lib/router';
 
 let routes = new Router([
     {

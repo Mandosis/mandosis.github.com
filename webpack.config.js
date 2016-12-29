@@ -10,7 +10,7 @@ let commonConfig = {
     },
     module: {
         loaders: [
-            { test: /\.ts$/, loader: 'ts-loader', exclude: /node_modules/ },
+            { test: /\.ts$/, loaders: ['babel-loader?presets[]=es2015', 'ts-loader'], exclude: /node_modules/ },
             { test: /\.html$/, loader: 'raw-loader' },
             { test: /\.css$/, loader: 'raw-loader' },
             { test: /\.json$/, loader: 'raw-loader' },
@@ -33,7 +33,7 @@ let finalConfig = {
     devtool: 'source-map',
     entry: {
         main: root('src/app/main'),
-        polyfills: root('src/app/polyfills')
+        // polyfills: root('src/app/polyfills')
     },
     output: {
         filename: '[name].bundle.js',
@@ -62,15 +62,17 @@ let finalConfig = {
 
         new TypedocWebpackPlugin({
             module: 'commonjs',
-            target: 'es5',
+            target: 'es6',
             includeDeclarations: true,
+            ignoreCompilerErrors: true,
 
             // Output Options
             out: root('docs'),
 
             // TypeDoc Options
             name: "Chris Rabuse Portfolio",
-            version: true
+            version: true,
+            // excludeExternals: true
         })
     ],
     node: {
