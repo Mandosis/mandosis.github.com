@@ -28,11 +28,11 @@ export class Router {
     public navigate(path: string): boolean {
         path = path.trim();
 
-        // if (path.charAt(0) === '/') {
-        //     path = path.slice(1, path.length);
-        // }
-
         for (let route of this._routes) {
+            if (path.charAt(0) !== '/') {
+                path = `/${path}`;
+            }
+
             if (path === route.path) {
                 let obj = {
                     Page: path,

@@ -10,6 +10,10 @@ export class Route {
      */
     constructor(route: { path: string, partial?: string, partialUrl?: string }) {
         if (route.path) {
+            if (route.path.charAt(0) !== '/') {
+                route.path = `/${route.path}`;
+            }
+
             this.path = route.path;
         } else {
             console.error(`Error (Router): No path provided.`);
