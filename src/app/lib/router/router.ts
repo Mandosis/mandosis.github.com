@@ -105,7 +105,7 @@ export class Router {
         let nodeList: NodeList = document.querySelectorAll('[routerLink]');
 
         // Convert Node List to Array of HTML Elements
-        let elementList: Array<HTMLElement> = [].slice.call(nodeList);
+        let elementList: Array<HTMLElement> = Array.prototype.slice.call(nodeList);
 
         let eventAction = () => {
             let route = event
