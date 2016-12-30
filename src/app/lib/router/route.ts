@@ -24,7 +24,7 @@ export class Route {
         } else if (route.template && !route.templateUrl) {
             this.template = route.template;
         } else {
-            console.error(`Router: Parital missing or both the templateUrl and template are set.`);
+            console.error(`Router: Template missing or both the templateUrl and template are set.`);
         }
     }
 }

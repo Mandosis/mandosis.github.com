@@ -53,7 +53,7 @@ export class Router {
             }
         }
         
-        // this.navigate(this._routes[0].path);
+        this.navigate(this._routes[0].path);
         console.error(`Router: Path '${path}' does not exist.`);
         return false;
     }
@@ -184,5 +184,12 @@ export class Router {
         }
 
         return this.navigate(window.location.hash);
+    }
+
+    /**
+     * Gets current state of router
+     */
+    public get state() {
+        return history.state;
     }
 }
