@@ -9,12 +9,12 @@ export class Router {
     /**
      * @param routes Array of routes
      */
-    constructor(routes: Array<{ path: string, partial?: string, partialUrl?: string }>) {
+    constructor(routes: Array<{ path: string, template?: string, templateUrl?: string }>) {
         for (let route of routes) {
             this._routes.push(new Route(route));
         }
 
-        this.navigate(window.location.pathname);
+        this._bootstrapNavigation();
         this._addRouterLinkEventListeners();
     }
 
@@ -29,44 +29,88 @@ export class Router {
         path = path.trim();
 
         for (let route of this._routes) {
+
+            if (path.charAt(0) === '#') {
+                path = path.slice(1, path.length);
+            }
+
+
             if (path.charAt(0) !== '/') {
                 path = `/${path}`;
             }
 
             if (path === route.path) {
-                let obj = {
+                let state = {
                     Page: path,
                     Url: path
                 }
 
-                history.pushState(obj, obj.Page, obj.Url);
-                this._renderPartial(route);
+                let urlWithBaseHref = this._getAndAppendBaseHref(state.Url);
+                
+                history.pushState(state, state.Page, urlWithBaseHref);
+                this._renderTemplate(route);
                 return true;
             }
         }
         
-        this.navigate(this._routes[0].path);
+        // this.navigate(this._routes[0].path);
         console.error(`Router: Path '${path}' does not exist.`);
         return false;
     }
 
     /**
-     * Get partial and inject into dom
+     * Gets and appends the base href value if it exists
      * 
-     * @param partial URL or HTML string.
-     * @param file Is the partial a file.
+     * @param url       URL for route
+     * @return          modified url adjusted for base tag if it exists
      */
-    private _renderPartial(route: Route): void {
-        this._getPartialHtml(route)
-            .then((partialHtml: string) => {
+    private _getAndAppendBaseHref(url: string): string {
+        let baseHref = this._baseHrefValue;
+
+        if (baseHref && baseHref !== '/') {
+            return baseHref + url;
+        }
+
+        if (baseHref && baseHref === '/') {
+            return url;
+        }
+        
+        return '#' + url; 
+    }
+
+    /**
+     * Get value of of the href attribute in the base tag if it exists
+     * 
+     * @returns Value of href attributes
+     */
+    private get _baseHrefValue(): string {
+        let baseElement: HTMLElement = document.getElementsByTagName('base')[0];
+        let baseHref: string;
+
+        if (baseElement) {
+            return baseElement
+                .attributes
+                .getNamedItem('href')
+                .value;
+        }
+    }
+
+    /**
+     * Get template html and inject into dom
+     * 
+     * @param route Route to render
+     */
+    private _renderTemplate(route: Route): void {
+        this._getTemplateHtml(route)
+            .then((templateHtml: string) => {
                 let routerElement = document.getElementsByTagName('router-outlet')[0];
 
                 if (!routerElement) {
-                    console.error(`Router: 'router-outlet' missing. Unable to load partial.`);
+                    console.error(`Router: 'router-outlet' missing. Unable to load template.`);
                     return false;
                 }
 
-                routerElement.innerHTML = partialHtml;
+                routerElement.innerHTML = templateHtml;
             })
             .catch((err) => {
                 console.error(`Router: Unable to get html for route '${route.path}'.\n${err}`);
@@ -74,18 +118,18 @@ export class Router {
     }
 
     /**
-     * Get HTML for partial
+     * Get HTML for template
      * 
      * @param route Route to get HTML for.
      */
-    private _getPartialHtml(route: Route): Promise<any> {
+    private _getTemplateHtml(route: Route): Promise<any> {
         return new Promise((resolve, reject) => {
 
-            if (route.partial && !route.partialUrl) {
-                return resolve(route.partial);
+            if (route.template && !route.templateUrl) {
+                return resolve(route.template);
             }
 
-            window.fetch(route.partialUrl)
+            window.fetch(route.templateUrl)
                 .then((response) => {
                     return response.text();
                 })
@@ -121,5 +165,24 @@ export class Router {
         for (let element of elementList) {
             element.addEventListener('click', eventAction);
         }
+    }
+
+    /**
+     * Load the correct route on initial page load
+     * 
+     * @returns Success of navigation
+     */
+    private _bootstrapNavigation(): boolean {
+        if (this._baseHrefValue) {
+            let location = window.location.pathname;
+
+            location = location.substring(
+                this._baseHrefValue.length,
+                location.length
+            );
+            return this.navigate(location);
+        }
+
+        return this.navigate(window.location.hash);
     }
 }

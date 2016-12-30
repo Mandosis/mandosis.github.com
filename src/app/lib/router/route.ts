@@ -1,14 +1,14 @@
 export class Route {
     path: string;
-    partial: string;
-    partialUrl: string;
+    template: string;
+    templateUrl: string;
 
     /**
      * @param path          Relative url to base.
-     * @param partial       HTML code to render.
-     * @param partialUrl    Url to partial html file.
+     * @param template       HTML code to render.
+     * @param templateUrl    Url to template html file.
      */
-    constructor(route: { path: string, partial?: string, partialUrl?: string }) {
+    constructor(route: { path: string, template?: string, templateUrl?: string }) {
         if (route.path) {
             if (route.path.charAt(0) !== '/') {
                 route.path = `/${route.path}`;
@@ -16,15 +16,15 @@ export class Route {
 
             this.path = route.path;
         } else {
-            console.error(`Error (Router): No path provided.`);
+            console.error(`Router: No path provided.`);
         }
         
-        if (route.partialUrl && !route.partial) {
-            this.partialUrl = route.partialUrl;
-        } else if (route.partial && !route.partialUrl) {
-            this.partial = route.partial;
+        if (route.templateUrl && !route.template) {
+            this.templateUrl = route.templateUrl;
+        } else if (route.template && !route.templateUrl) {
+            this.template = route.template;
         } else {
-            console.error(`Error (Router): Parital missing or both the partialUrl and partial are set.`);
+            console.error(`Router: Parital missing or both the templateUrl and template are set.`);
         }
     }
 }

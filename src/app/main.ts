@@ -3,11 +3,11 @@ import { Router } from './lib/router';
 let routes = new Router([
     {
         path: '/',
-        partial: `<h1>Home</h1><p>This is the home page.</p>`
+        template: `<h1>Home</h1><p>This is the home page.</p>`
     },
     {
         path: 'about',
-        partial: `<h1>About</h1><p>This is the about page. It turns out I am actually human.</p>`
+        template: `<h1>About</h1><p>This is the about page. It turns out I am actually human.</p>`
         // partialUrl: 'index.html'
     }
 ]);
