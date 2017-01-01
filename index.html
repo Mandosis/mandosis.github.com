@@ -2,14 +2,20 @@
 <html>
     <head>
         <title>Chris Rabuse</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <base href="/">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400, 700" rel="stylesheet">
+        <link rel="stylesheet" href="dist/main.bundle.css">
     </head>
     <body>
-        <h1>Hello!</h1>
-        <ul>
-            <li routerLink="/">Home</li>
-            <li routerLink="about">About</li>
-        </ul>
+        <nav>
+            <ul class="navigation">
+                <li routerLink="/">Home</li>
+                <li routerLink="projects">Projects</li>
+                <li routerLink="work">Work</li>
+                <li routerLink="about">About</li>
+            </ul>
+        </nav>
 
         <router-outlet></router-outlet>
 
