@@ -12,9 +12,11 @@ let commonConfig = {
         loaders: [
             { test: /\.ts$/, loaders: ['babel-loader?presets[]=es2015', 'ts-loader'], exclude: /node_modules/ },
             { test: /\.html$/, loader: 'raw-loader' },
-            { test: /\.css$/, loader: 'raw-loader' },
+            { test: /\.css$/, loaders: ['style-loader', 'css-loader'] },
             { test: /\.json$/, loader: 'raw-loader' },
-            { test: /\.scss$/, exclude: /node_modules/, loaders: ['raw-loader', 'sass-loader'] }
+            { test: /\.scss$/, exclude: /node_modules/, loaders: ['file-loader?name=main.bundle.css', 'extract-loader', 'css-loader?minimize', 'sass-loader'] },
+            { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000&minetype=application/font-woff" },
+            { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" }
         ]
     },
     plugins: [],
@@ -70,7 +72,7 @@ let finalConfig = {
             out: root('docs'),
 
             // TypeDoc Options
-            name: "Chris Rabuse Portfolio",
+            name: 'Chris Rabuse Portfolio',
             version: true,
             // excludeExternals: true
         })

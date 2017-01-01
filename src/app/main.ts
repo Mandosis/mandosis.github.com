@@ -1,3 +1,5 @@
+require('../styles/main.scss');
+
 import { Router } from './lib/router';
 
 let router = new Router([
