@@ -8,18 +8,19 @@
         <link rel="stylesheet" href="dist/main.bundle.css">
     </head>
     <body>
-        <nav>
+        <header>
             <ul class="navigation">
                 <li routerLink="/">Home</li>
                 <li routerLink="projects">Projects</li>
                 <li routerLink="work">Work</li>
                 <li routerLink="about">About</li>
             </ul>
-        </nav>
+        </header>
 
-        <router-outlet></router-outlet>
+        <main>
+            <router-outlet></router-outlet>
+        </main>
 
-        <!-- JavaScript -->
         <script src="dist/main.bundle.js"></script>
     </body>
 </html>

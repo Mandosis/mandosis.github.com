@@ -9,8 +9,8 @@ let router = new Router([
     },
     {
         path: 'about',
-        // template: `<h1>About</h1><p>This is the about page. It turns out I am actually human.</p>`,
-        templateUrl: 'index.html'
+        template: `<h1>About</h1><p>This is the about page. It turns out I am actually human.</p>`,
+        // templateUrl: 'index.html'
     }
 ]);
 

@@ -1,11 +1,14 @@
-@import "../../node_modules/normalize.css/normalize";
+@import "~normalize.css/normalize";
 
 html, body {
-    background: #2E2E2E;
-    color: #888;
+    background: #2A2A2A;
+    color: #999;
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
+    -webkit-font-smoothing: antialiased;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+    letter-spacing: 0.01rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -14,22 +17,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 strong {
-    color: #AAA;
+    color: #BBB;
 }
 
 .navigation {
     font-weight: 700;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: #DDD;
     text-transform: uppercase;
     display: flex;
     width: 100%;
     justify-content: center;
     list-style-type: none;
-    margin: 0;
-    padding: 0;
-    padding-top: 2rem;
-    margin-bottom: 3rem;
+    margin: 0 0 3rem 0;
+    padding: 2.5rem 0 0 0;
+    letter-spacing: 0.163rem;
 
     li {
         display: inline;
