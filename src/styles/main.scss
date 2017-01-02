@@ -39,3 +39,22 @@ strong {
         cursor: pointer;
     }
 }
+
+.home {
+    height: calc(100vh - 6.75rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.intro {
+    text-align: center;
+    margin-top: -6.75rem;
+
+    p {
+        line-height: 0.8rem;
+    }
+}
+
+*[routerLink] {
+    cursor: pointer;
+}

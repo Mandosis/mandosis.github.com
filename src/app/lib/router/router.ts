@@ -15,7 +15,7 @@ export class Router {
         }
 
         this._bootstrapNavigation();
-        this._addRouterLinkEventListeners();
+        this._addRouterLinkClickEvents();
     }
 
 
@@ -95,6 +95,10 @@ export class Router {
         }
     }
 
+    private get _routerOutletElement(): Element {
+        return document.getElementsByTagName('router-outlet')[0];
+    }
+
     /**
      * Get template html and inject into dom
      * 
@@ -103,14 +107,14 @@ export class Router {
     private _renderTemplate(route: Route): void {
         this._getTemplateHtml(route)
             .then((templateHtml: string) => {
-                let routerElement = document.getElementsByTagName('router-outlet')[0];
 
-                if (!routerElement) {
+                if (!this._routerOutletElement) {
                     console.error(`Router: 'router-outlet' missing. Unable to load template.`);
                     return false;
                 }
 
-                routerElement.innerHTML = templateHtml;
+                this._routerOutletElement.innerHTML = templateHtml;
+                this._addRouterLinkClickEvents(true);
             })
             .catch((err) => {
                 console.error(`Router: Unable to get html for route '${route.path}'.\n${err}`);
@@ -145,9 +149,16 @@ export class Router {
     /**
      * Add click event listeners to elements containing the 'routerLink'
      * attribute to navigate to a new route.
+     * 
+     * @param outletOnly Only add click events to routerLinks in the 'router-outlet'.
      */
-    private _addRouterLinkEventListeners() {
-        let nodeList: NodeList = document.querySelectorAll('[routerLink]');
+    private _addRouterLinkClickEvents(outletOnly?: boolean) {
+        let nodeList: NodeList;
+        if (outletOnly) {
+            nodeList = this._routerOutletElement.querySelectorAll('[routerLink]');
+        } else {
+            nodeList = document.querySelectorAll('[routerLink]');
+        }
 
         // Convert Node List to Array of HTML Elements
         let elementList: Array<HTMLElement> = Array.prototype.slice.call(nodeList);
@@ -166,6 +177,7 @@ export class Router {
             element.addEventListener('click', eventAction);
         }
     }
+
 
     /**
      * Load the correct route on initial page load

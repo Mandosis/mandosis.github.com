@@ -5,7 +5,8 @@ import { Router } from './lib/router';
 let router = new Router([
     {
         path: '/',
-        template: `<h1>Home</h1><p>This is the home page.</p>`
+        template: require('../templates/_home.html')
+        // template: `<h1>Home</h1><p>This is the home page.</p>`
     },
     {
         path: 'about',
