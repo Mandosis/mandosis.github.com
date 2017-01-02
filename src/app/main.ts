@@ -6,12 +6,18 @@ let router = new Router([
     {
         path: '/',
         template: require('../templates/_home.html')
-        // template: `<h1>Home</h1><p>This is the home page.</p>`
+    },
+    {
+        path: 'projects',
+        template: require('../templates/_projects.html')
+    },
+    {
+        path: 'work',
+        template: require('../templates/_work.html')
     },
     {
         path: 'about',
-        template: `<h1>About</h1><p>This is the about page. It turns out I am actually human.</p>`,
-        // templateUrl: 'index.html'
+        template: require('../templates/_about.html'),
     }
 ]);
 
