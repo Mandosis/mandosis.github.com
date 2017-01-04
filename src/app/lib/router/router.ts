@@ -48,7 +48,7 @@ export class Router {
                 let urlWithBaseHref = this._getAndAppendBaseHref(state.Url);
                 
                 history.pushState(state, state.Page, urlWithBaseHref);
-                this._renderTemplate(route);
+                this._addTemplateToDom(route);
                 return true;
             }
         }
@@ -104,7 +104,7 @@ export class Router {
      * 
      * @param route Route to render
      */
-    private _renderTemplate(route: Route): void {
+    private _addTemplateToDom(route: Route): void {
         this._getTemplateHtml(route)
             .then((templateHtml: string) => {
 
