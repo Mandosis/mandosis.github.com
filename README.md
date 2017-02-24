@@ -1,8 +1,9 @@
-# mandosis.github.io
+# Chris Rabuse Portfolio
+
 Personal portfolio for Chris Rabuse
 
+## Setup Instructions
 
-## Build Instructions
-1. `npm i -g grunt-cli`
-2. `npm i`
-3. `grunt`
+1. `yarn`
+2. `yarn start`
+3. Open index.html in a browser

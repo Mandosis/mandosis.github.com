@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
     <title>Chris Rabuse</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <base href="/"> -->
-    <meta name="theme-color" content="#568085">
-    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css" />
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:700|Roboto|Oswald:300,400" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="dist/main.bundle.css">
   </head>
   <body>
+<<<<<<< HEAD
     <div class="pattern"></div>
     <main>
       <section class="intro" data-index=1>
@@ -147,40 +143,85 @@
       <section class="details" data-item="2mean">
         <div class="cover" style="background-image: url('assets/images/portfolio/2mean/cover.png')">
           <span class="close"><i class="fa fa-arrow-left" aria-hidden="true"></i></span>
-        </div>
-        <div class="content">
-          <h2>Project</h2>
-          <p>
-            2MEAN is a MEAN Stack (MongoDB, Express.js, Angular, Node.js) starter repository featuring cutting edge technology such as Angular 2 with universal rendering. This project aims to cut down on the time it takes to setup an Angular 2 project with all the necessary tooling for TypeScript.
-          </p>
+=======
+    <section id="intro">
+      <h1>I&rsquo;m a Full Stack Developer based in Minnesota</h1>
+    </section>
 
-          <h2>Role</h2>
-          <p>
-            Built as a solo project I researched and programmed the front-end, server and configurations for the tooling needed to build the project.
-          </p>
+    <section id="bio" class="skew">
+      <div class="content unskew">
+        <h2>About Me</h2>
+        <p>Hi, I&rsquo;m Chris Rabuse, a 20 year old Full Stack Developer. I currently live in Minnesota, just north of the Twin Cities. In
+my free time I work on a variety of side projects such as graphic design and indie game development. I enjoy crafting interactive
+experiences while pushing the limits of my knowledge and learning new skills. I also enjoy the outdoors whenever possible
+with photography, snowmobiling, boating and fishing.</p>
+      </div>
+    </section>
 
-          <h2>Technology Used</h2>
-          <ul>
-            <li>MEAN Stack (MongoDB, Express.js, Angular, Node.js)</li>
-            <li>MongoDB</li>
-            <li>Express.js</li>
-            <li>Angular 2</li>
-            <li>Angular Universal</li>
-            <li>Node.js</li>
-            <li>TypeScript</li>
-            <li>WebPack</li>
-            <li>dotenv</li>
-            <li>helmet</li>
-            <li>body-parser</li>
-            <li>mongoose</li>
-            <li>winston</li>
-          </ul>
+    <section class="project skew">
+      <div class="content unskew">
+        <img src="assets/sportngin.png" class="preview">
+        <div class="description">
+          <h2>Sport Ngin Tryouts Manager</h2>
+          <p>A mobile first web application for tracking and managing sports tryouts untilizing the Sport Ngin API. Built with the MEAN
+Stack, MongoDB, Express.js, AngularJS, Node.js, Passport, passport-oauth2, Jade and Bootstrap.</p>
+          <a href="https://github.com/Mandosis/Sport-Ngin-Tryouts-App">
+            <button class="button button-light">View Project</button>
+          </a>
+>>>>>>> origin/development
         </div>
-      </section>
-    </main>
-    <script src="vendor/jquery/dist/jquery.min.js"></script>
-    <script src="vendor/jquery-mousewheel/jquery.mousewheel.js"></script>
-    <script src="vendor/hammerjs/hammer.min.js"></script>
-    <script src="assets/js/client.min.js"></script>
+      </div>
+    </section>
+
+    <section class="project project-reversed project-light skew">
+      <div class="content unskew">
+        <img src="assets/bc-stats.png" class="preview mobile-only">
+        <div class="description">
+          <h2>Battlecry Stats</h2>
+          <p>A player stat tracking API and Web App built using Node.js, Express.js, MongoDB, JavaScript, AngularJS and Charts.js designed
+to connect to the Battlecry game client.</p>
+          <a href="https://github.com/Mandosis/battlecry-api">
+            <button class="button">View Project</button>
+          </a>
+        </div>
+        <img src="assets/bc-stats.png" class="preview desktop-only">
+      </div>
+    </section>
+
+    <section class="project skew">
+      <div class="content unskew">
+        <img src="assets/benhalligan.png" class="preview">
+        <div class="description">
+          <h2>Ben Halligan Portfolio</h2>
+          <p>A personal portfolio for Ben Halligan, a talented 3D artist and animator from new Zealand. Built using HTML, Sass, Ghost and Grunt.</p>
+          <a href="http://benjhalligan.com">
+            <button class="button button-light">View Project</button>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="project project-reversed project-light skew">
+      <div class="content unskew">
+        <img src="assets/bc-site.png" class="preview mobile-only">
+        <div class="description">
+          <h2>Battlecry Site</h2>
+          <p>A website for the Battlecry project featuring a blog and a community forum built with Ghost, NodeBB, HTML, Sass and Grunt.</p>
+          <a href="http://swbattlecry.com">
+            <button class="button">View Project</button>
+          </a>
+        </div>
+        <img src="assets/bc-site.png" class="preview desktop-only">
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        © 2017 Designed and developed by 
+        <a href="http://chrisrabuse.com">Chris Rabuse</a>
+      </p>
+    </footer>
+
+    <script src="dist/main.bundle.js"></script>
   </body>
 </html>
