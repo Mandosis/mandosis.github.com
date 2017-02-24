@@ -2,6 +2,7 @@ export class Route {
     path: string;
     template: string;
     templateUrl: string;
+    children: Array<Route>;
 
     /**
      * @param path          Relative url to base.

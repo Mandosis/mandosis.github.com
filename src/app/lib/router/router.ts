@@ -164,6 +164,7 @@ export class Router {
         let elementList: Array<HTMLElement> = Array.prototype.slice.call(nodeList);
 
         let eventAction = () => {
+            event.preventDefault();
             let route = event
                 .srcElement
                 .attributes
