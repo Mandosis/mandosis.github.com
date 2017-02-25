@@ -140,7 +140,7 @@ h2 {
 
     .description {
       margin-left: 0;
-      margin-right: 0;
+      margin-right: 3rem;
     }
 
     .button {
@@ -265,7 +265,13 @@ footer {
       }
     }
 
-    &::first-of-type {
+    &:nth-child(even) {
+      .description {
+        margin-right: 0;
+      }
+    }
+
+    &:first-child {
       margin-top: -0.13rem;
     }
   }
