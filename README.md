@@ -1,6 +1,6 @@
 # Chris Rabuse Portfolio
 
-Personal portfolio for Chris Rabuse
+Personal portfolio for Chris Rabuse found at http://chrisrabuse.com
 
 ## Setup Instructions
 
