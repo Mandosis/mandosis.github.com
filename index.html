@@ -7,117 +7,158 @@
     <link rel="stylesheet" href="dist/main.bundle.css">
   </head>
   <body>
-    <section id="intro">
-      <h1>I&rsquo;m a Software Engineer<br>based in Minnesota</h1>
-    </section>
-
-    <section id="bio" class="skew">
-      <div class="content unskew">
-        <h2>About Me</h2>
+    <header>
+      <span class="title">
+        Chris Rabuse
+      </span>
+      <ul>
+        <li><a href="#bio">About Me</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+      </ul>
+    </header>
+    
+    <section id="bio" id="bio" class="">
+      <div class="content">
+        <img src="assets/me.jpg" class="my-photo" />
+        <h2>Who am I?</h2>
         <p>
-          Hi, I&rsquo;m Chris Rabuse, a Full Stack Software Engineer living in Minnesota. I greatly enjoy creating
-          using and pushing the limits of my knowledge to design and build solutions. When I am not writing software I
-          can be found playing guitar, shooting photos, reading science fiction and fantasy books, and in the winter hitting
-          the trails on a snowmobile.
+          I am a Software Engineer creating full stack solutions for customer-facing applications at Reemo Health, 
+          a digital health company based in Minneapolis, Minnesota. When I am not writing software, I spend time practicing 
+          guitar, reading science fiction and fantasy books, and depending upon the time of the year I can be found up 
+          north hitting the trails on snowmbile or enjoying time on a lake.
         </p>
       </div>
     </section>
+    
+    
+    <section class="project" id="portfolio">
+      <div class="content">
+        <img src="assets/reemo-portal.png" class="preview" />
+        <div class="description">
+          <h2>Reemo Health Portal</h2>
+          <p class="time-frame">July 2017 - Current</p>
+          <p>The portal is designed to be used by wearers of a Reemo Health Device (Samsung Gear S2) and senior living facilities to view and 
+            share access to health information captured by the devices sensors. The portal is built with Angular 5 and consumes the Reemo Health REST API.
+          </p>
+          <a href="https://reemohealth.com">
+            <button class="button">reemohealth.com</button>
+          </a>
+        </div>
+      </div>
+    </section>
 
-    <section id="portfolio">
-      <section class="project skew">
-        <div class="content unskew">
+    <section class="project">
+      <div class="content">
+        <img src="assets/reemo-api.jpg" class="preview" />
+        <div class="description">
+          <h2>Reemo Health API</h2>
+          <p class="time-frame">July 2017 - Current</p>
+          <p>The protected API is designed to be used for first and third party applications to access user and organization information. 
+             It is written in TypeScript, runs on Node.js using Koa.js and Microsoft Azure SQL Server.
+          </p>
+          <a href="https://reemohealth.com">
+            <button class="button">reemohealth.com</button>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="project">
+      <div class="content">
+        <img src="assets/reemo-watch-tech-trial.jpg" class="preview" />
+        <div class="description">
+          <h2>Reemo Health Early Standalone Watch UI</h2>
+          <p class="time-frame">April 2017 - June 2017</p>
+          <p>
+            The very first iteration of the Reemo Health standalone watch UI was a suite of applications for the Tizen
+            operating system that would capture heart rate and step count data and send it to the Reemo Health cloud services.
+            The UI consisted of a watch face, three Tizen Web Widgets (Heart Rate, Step Count and Battery), Remote PERS (Emergency Call) and a parent
+            application that was responsible for capturing the data, updating the widgets and sending the data through
+            an IPC call to a native Tizen service. The visual design of the UI was completely my own with and focused on
+            usability for seniors. This meant that text had to be as big as possible and have very few touch targets on 
+            the small 1.2 inch, 360 x 360 pixel OLED display. All of the applications were written in TypeScript, HTML and SCSS using the Tizen OS JavaScript API.
+          </p>
+          <a href="https://reemohealth.com">
+            <button class="button">reemohealth.com</button>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="project">
+      <div class="content">
+        <img src="assets/reemo-user-dashboard.jpg" class="preview" />
+        <div class="description">
+          <h2>Reemo Health User Dashboard</h2>
+          <p class="time-frame">March 2017 - May 2017</p>
+          <p>
+            The very first iteration of a user dashboard for facilities. The UI showed a sortable list of users that were
+            by default sorted by priority as determined by data from Samsung S-Health gathered from a Samsung smart phone
+            paired with a Samsung Galaxy S2 smart watch. The dashboard was written using Angular 2 with the Teradata 
+            Covalent UI platform and consumed an external API built on Azure Functions.
+          </p>
+          <a href="https://reemohealth.com">
+            <button class="button">reemohealth.com</button>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    
+      <section class="project">
+        <div class="content">
           <img src="assets/alpine-router.png" class="preview" />
           <div class="description">
             <h2>Alpine Router</h2>
+            <p class="time-frame">February 2017 - March 2017</p>
             <p>An open source dependency free client-side router featuring child routes and built with the ES2015 JavaScript feature set using TypeScript.</p>
             <a href="http://chrisrabuse.com/Alpine-Router">
               <button class="button">View Project</button>
             </a>
           </div>
-          <img src="assets/alpine-router.png" class="preview" />
         </div>
       </section>
-
-      <section class="project skew">
-        <div class="content unskew">
-          <img src="assets/2mean.gif" class="preview" />
-          <div class="description">
-            <h2>2MEAN</h2>
-            <p>A MEAN (MongoDB, Express.js, Angular, Node.js) Stack starter repository featuring Angular 2 with universal rendering on the server.</p>
-            <a href="https://github.com/Mandosis/2MEAN">
-              <button class="button">View Project</button>
-            </a>
-          </div>
-          <img src="assets/2mean.gif" class="preview" />
-        </div>
-      </section>
-
-      <section class="project skew">
-        <div class="content unskew">
+          
+      
+      <section class="project">
+        <div class="content">
           <img src="assets/sportngin.png" class="preview"/>
           <div class="description">
             <h2>Sport Ngin Tryouts Manager</h2>
-            <p>A mobile first web application for tracking and managing sports tryouts untilizing the Sport Ngin API. Built with the MEAN
-  Stack, MongoDB, Express.js, AngularJS, Node.js, Passport, passport-oauth2, Jade and Bootstrap.</p>
+            <p class="time-frame">May 2016 - June 2016</p>
+            <p>
+              A mobile first web application designed to remove the paper factor for tracking and managing sports tryouts
+              and utilizes the Sport Ngin API.
+              The backend was built with JavaScript running on Node.js using Express.js, Passport.js and MongoDB. For the
+              single page application, JavaScript was used with AngularJS, Jade and Bootstrap.
+            </p>
             <a href="https://github.com/Mandosis/Sport-Ngin-Tryouts-App">
               <button class="button">View Project</button>
             </a>
           </div>
-          <img src="assets/sportngin.png" class="preview" />
         </div>
-      </section>
-
-      <section class="project skew">
-        <div class="content unskew">
-          <img src="assets/bc-stats.png" class="preview"/>
-          <div class="description">
-            <h2>Battlecry Stats</h2>
-            <p>A player stat tracking API and Web App built using Node.js, Express.js, MongoDB, JavaScript, AngularJS and Charts.js designed
-  to connect to the Battlecry game client.</p>
-            <a href="https://github.com/Mandosis/battlecry-api">
-              <button class="button">View Project</button>
-            </a>
-          </div>
-          <img src="assets/bc-stats.png" class="preview" />
-        </div>
-      </section>
-
-      <section class="project skew">
-        <div class="content unskew">
+      </section> 
+      
+      <section class="project">
+        <div class="content">
           <img src="assets/benhalligan.png" class="preview"/>
           <div class="description">
             <h2>Ben Halligan Portfolio</h2>
-            <p>A personal portfolio for Ben Halligan, a talented 3D artist and animator from new Zealand. Built using HTML, Sass, Ghost and Grunt.</p>
+            <p>A personal portfolio for Ben Halligan, a talented 3D artist and animator from New Zealand. Built using HTML, Sass, Ghost and Grunt.</p>
             <a href="http://benjhalligan.com">
               <button class="button">View Project</button>
             </a>
           </div>
-          <img src="assets/benhalligan.png" class="preview" />
         </div>
       </section>
-
-      <section class="project skew">
-        <div class="content unskew">
-          <img src="assets/bc-site.png" class="preview"/>
-          <div class="description">
-            <h2>Battlecry Site</h2>
-            <p>A website for the Battlecry project featuring a blog with the latest updates on the project built with Ghost, HTML, Sass and Grunt.</p>
-            <a href="http://swbattlecry.com">
-              <button class="button">View Project</button>
-            </a>
-          </div>
-          <img src="assets/bc-site.png" class="preview" />
-        </div>
-      </section>
-    </section>
-
-    <footer>
-      <p>
-        © 2017 Designed and developed by 
-        <a href="http://chrisrabuse.com">Chris Rabuse</a>
-      </p>
-    </footer>
-
-    <!--<script src="dist/main.bundle.js"></script>-->
-  </body>
-</html>
+      <footer>
+        <p>
+          © 2018 Designed and developed by 
+          <a href="http://chrisrabuse.com">Chris Rabuse</a>
+        </p>
+      </footer>
+      
+      <!--<script src="dist/main.bundle.js"></script>-->
+    </body>
+    </html>
+    
