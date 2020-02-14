@@ -7,19 +7,19 @@
     <link rel="stylesheet" href="dist/main.bundle.css">
   </head>
   <body>
-    <header>
-      <span class="title">
-        Chris Rabuse
-      </span>
-      <ul>
-        <li><a href="#bio">About Me</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-      </ul>
-    </header>
+<!--    <header>-->
+<!--      <span class="title">-->
+<!--        Chris Rabuse-->
+<!--      </span>-->
+<!--      <ul>-->
+<!--        <li><a href="#bio">About Me</a></li>-->
+<!--        <li><a href="#portfolio">Portfolio</a></li>-->
+<!--      </ul>-->
+<!--    </header>-->
     
     <section id="bio" id="bio" class="">
       <div class="content">
-        <img src="assets/me.jpg" class="my-photo" />
+        <img src="assets/me-2020.jpg" class="my-photo" />
         <h2>Who am I?</h2>
         <p>
           I am a Software Engineer creating full stack solutions for customer-facing applications at Reemo Health, 
@@ -29,133 +29,33 @@
         </p>
       </div>
     </section>
-    
-    
-<!--     <section class="project" id="portfolio">
-      <div class="content">
-        <img src="assets/reemo-portal.png" class="preview" />
-        <div class="description">
-          <h2>Reemo Health Portal</h2>
-          <p class="time-frame">July 2017 - Current</p>
-          <p>The portal is designed to be used by wearers of a Reemo Health Device (Samsung Gear S2), care providers and facilities to view and 
-            share access to the health dashboard which contains health metrics captured by the devices sensors. Messages sent to a wearer from a care provider 
-            can also be viewed. The portal is built with Angular 6 and consumes the Reemo Health REST API.
-          </p>
-          <a href="https://reemohealth.com">
-            <button class="button">reemohealth.com</button>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project">
-      <div class="content">
-        <img src="assets/reemo-api.jpg" class="preview" />
-        <div class="description">
-          <h2>Reemo Health API</h2>
-          <p class="time-frame">July 2017 - Current</p>
-          <p>The protected API is designed to be used for first and third party applications to access user and organization information. 
-             It is written in TypeScript, runs on Node.js using Koa.js and Microsoft Azure SQL Server.
-          </p>
-          <a href="https://reemohealth.com">
-            <button class="button">reemohealth.com</button>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project">
-      <div class="content">
-        <img src="assets/reemo-watch-tech-trial.jpg" class="preview" />
-        <div class="description">
-          <h2>Reemo Health Early Standalone Watch UI</h2>
-          <p class="time-frame">April 2017 - June 2017</p>
-          <p>
-            The very first iteration of the Reemo Health standalone watch UI was a suite of applications for the Tizen
-            operating system that would capture heart rate and step count data and send it to the Reemo Health cloud services.
-            The UI consisted of a watch face, three Tizen Web Widgets (Heart Rate, Step Count and Battery), Remote PERS (Emergency Call) and a parent
-            application that was responsible for capturing the data, updating the widgets and sending the data through
-            an IPC call to a native Tizen service. The visual design of the UI was completely my own with and focused on
-            usability for seniors. This meant that text had to be as big as possible and have very few touch targets on 
-            the small 1.2 inch, 360 x 360 pixel OLED display. All of the applications were written in TypeScript, HTML and SCSS using the Tizen OS JavaScript API.
-          </p>
-          <a href="https://reemohealth.com">
-            <button class="button">reemohealth.com</button>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="project">
-      <div class="content">
-        <img src="assets/reemo-user-dashboard.jpg" class="preview" />
-        <div class="description">
-          <h2>Reemo Health User Dashboard</h2>
-          <p class="time-frame">March 2017 - May 2017</p>
-          <p>
-            The very first iteration of a user dashboard for facilities. The UI showed a sortable list of users that were
-            by default sorted by priority as determined by data from Samsung S-Health gathered from a Samsung smart phone
-            paired with a Samsung Galaxy S2 smart watch. The dashboard was written using Angular 2 with the Teradata 
-            Covalent UI platform and consumed an external API built on Azure Functions.
-          </p>
-          <a href="https://reemohealth.com">
-            <button class="button">reemohealth.com</button>
-          </a>
-        </div>
-      </div>
-    </section> -->
 
     
       <section class="project">
         <div class="content">
-          <img src="assets/alpine-router.png" class="preview" />
+          <img src="assets/wi-trail-monitor.jpg" class="preview" />
           <div class="description">
-            <h2>Alpine Router</h2>
-            <p class="time-frame">February 2017 - March 2017</p>
-            <p>An open source dependency free client-side router featuring child routes and built with the ES2015 JavaScript feature set using TypeScript.</p>
-            <a href="http://chrisrabuse.com/Alpine-Router">
-              <button class="button">View Project</button>
-            </a>
-          </div>
-        </div>
-      </section>
-          
-      
-      <section class="project">
-        <div class="content">
-          <img src="assets/sportngin.png" class="preview"/>
-          <div class="description">
-            <h2>Sport Ngin Tryouts Manager</h2>
-            <p class="time-frame">May 2016 - June 2016</p>
+            <h2>Wisconsin Snowmobile Trail Status Monitor</h2>
+            <p class="time-frame">December 2019 - January 2020</p>
             <p>
-              A mobile first web application designed to remove the paper factor for tracking and managing sports tryouts
-              and utilizes the Sport Ngin API.
-              The backend was built with JavaScript running on Node.js using Express.js, Passport.js and MongoDB. For the
-              single page application, JavaScript was used with AngularJS, Jade and Bootstrap.
+              Monitors the status of snowmobile trails in Wisconsin counties and sends SMS alerts when the status changes.
+              Built as two C# .NET Core 3.1 Azure Functions. The first is the trail status monitor that polls the travelwisconsin.com
+              snow report section for the specified counties to get the latest trail condition report. The second is a
+              HTTP webhook that is used by Twilio when a user sends a SMS message to the service that either requests the
+              user be subscribed to updates or to unsubscribe. The list of phone numbers to message is stored in Azure Tables
+              storage as well as the history of condition reports so when a user subscribes they can get the latest report
+              immediately.
             </p>
-            <a href="https://github.com/Mandosis/Sport-Ngin-Tryouts-App">
-              <button class="button">View Project</button>
-            </a>
-          </div>
-        </div>
-      </section> 
-      
-      <section class="project">
-        <div class="content">
-          <img src="assets/benhalligan.png" class="preview"/>
-          <div class="description">
-            <h2>Ben Halligan Portfolio</h2>
-            <p class="time-frame">August 2015</p>
-            <p>A personal portfolio for Ben Halligan, a talented 3D artist and animator from New Zealand. Built using HTML, Sass, Ghost and Grunt.</p>
-            <a href="http://benjhalligan.com">
+            <a href="https://github.com/Mandosis/wi-snowreport">
               <button class="button">View Project</button>
             </a>
           </div>
         </div>
       </section>
+
       <footer>
         <p>
-          © 2018 Designed and developed by 
+          &copy; 2020 Designed and developed by
           <a href="http://chrisrabuse.com">Chris Rabuse</a>
         </p>
       </footer>
